@@ -1,0 +1,108 @@
+{
+  "company_id": "amber",
+  "company_name": "Amber Enterprises India Limited",
+  "decision_date": "2026-09-08",
+  "source_decision_snapshot_hash": "014403f6ce1549d8b390a723870cbe709a18953782f6dffe6ae84ddd2b924e89",
+  "memo_contract_version": "company-memo-v1",
+  "prompt_version": "company-memo-prompt-v1",
+  "underlying_stance": "sell",
+  "final_portfolio_action": "review_required",
+  "executive_summary": {
+    "text": "Amber combines strong reported growth and operating scale with material balance-sheet exposure, while its provisional portfolio weight makes the deterministic reduction subject to human review.",
+    "evidence_ids": [
+      "fundamental-1eb858fe9f6565c1",
+      "fundamental-adbdf9c9faf91f36",
+      "fundamental-d6fcf6d34b37a12d"
+    ],
+    "category": "executive_summary"
+  },
+  "stance_and_action_explanation": [
+    {
+      "text": "The frozen engine records a SELL investment stance but a REVIEW_REQUIRED portfolio action because the proposed reduction depends materially on provisional holdings rather than verified live positions.",
+      "evidence_ids": ["price-bd65ec54100fe2c5"],
+      "category": "stance_and_action"
+    }
+  ],
+  "investment_thesis": [
+    {
+      "text": "FY26 revenue of INR 12,186 crore, operating EBITDA of INR 970 crore, and reported year-on-year revenue growth of 22% support the view that the business has meaningful operating scale and growth.",
+      "evidence_ids": [
+        "fundamental-1eb858fe9f6565c1",
+        "fundamental-adbdf9c9faf91f36",
+        "fundamental-e1c16f99ae73902d"
+      ],
+      "category": "investment_thesis"
+    }
+  ],
+  "supporting_evidence": [
+    {
+      "text": "The supplied research includes an analyst estimate of more than 40% FY27 electronics revenue growth and management guidance for 13–15% RAC growth outperformance.",
+      "evidence_ids": [
+        "research-amber-2026-05-16-p1-electronics-estimate",
+        "research-amber-2026-05-16-p1-rac-guidance"
+      ],
+      "category": "supporting_evidence"
+    }
+  ],
+  "counter_evidence_and_risks": [
+    {
+      "text": "Borrowings of INR 2,306 crore substantially exceed cash and cash equivalents of INR 231 crore, and the supplied research highlights a sharp increase in period-end working-capital days.",
+      "evidence_ids": [
+        "fundamental-d6fcf6d34b37a12d",
+        "fundamental-ce174b052e07074e",
+        "research-amber-2026-05-16-p1-working-capital"
+      ],
+      "category": "risk"
+    }
+  ],
+  "valuation_scenario_explanation": [
+    {
+      "text": "The frozen scenarios start from the validated 8 September 2026 adjusted close and use FY26 revenue and operating EBITDA as the operating anchors; their values remain model assumptions rather than analyst targets.",
+      "evidence_ids": [
+        "price-bd65ec54100fe2c5",
+        "fundamental-1eb858fe9f6565c1",
+        "fundamental-adbdf9c9faf91f36"
+      ],
+      "category": "valuation"
+    }
+  ],
+  "portfolio_sizing_explanation": [
+    {
+      "text": "The target exposure is lower than the working current exposure because the engine combines the company view with balance-sheet risk and concentration controls; the working exposure remains an unverified proxy.",
+      "evidence_ids": [
+        "fundamental-d6fcf6d34b37a12d",
+        "price-bd65ec54100fe2c5"
+      ],
+      "category": "portfolio_sizing"
+    }
+  ],
+  "missing_information_and_limitations": [
+    {
+      "text": "Reported PAT of INR 226 crore and adjusted PAT of INR 338 crore differ by definition, while a verified diluted share count and independently reconstructed enterprise value remain unavailable.",
+      "evidence_ids": [
+        "fundamental-amber-reported-pat-fy26",
+        "fundamental-amber-adjusted-pat-fy26"
+      ],
+      "category": "limitation"
+    }
+  ],
+  "what_would_change_the_decision": [
+    {
+      "text": "The view would need reassessment if electronics or RAC growth expectations weakened, or if leverage and cash conversion deteriorated materially.",
+      "evidence_ids": [
+        "research-amber-2026-05-16-p1-electronics-estimate",
+        "research-amber-2026-05-16-p1-rac-guidance",
+        "fundamental-d6fcf6d34b37a12d",
+        "fundamental-ef4de454414fa76c"
+      ],
+      "category": "change_trigger"
+    }
+  ],
+  "human_review_explanation": [
+    {
+      "text": "Human review is required before acting because the portfolio quantities are provisional even though the decision-date market observation is validated.",
+      "evidence_ids": ["price-bd65ec54100fe2c5"],
+      "category": "human_review"
+    }
+  ]
+}

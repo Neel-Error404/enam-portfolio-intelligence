@@ -1,0 +1,48 @@
+# Immutable supplied inputs and local data
+/assessment_inputs/
+/data/
+/local_data/
+/raw/
+/decrypted/
+*.decrypted.xlsx
+*_decrypted.xlsx
+*.raw.xlsx
+
+# Generated outputs
+/artifacts/
+/outputs/
+/coverage/
+
+# Local secrets and credentials
+.env
+.env.*
+*.key
+*.pem
+*.p12
+*.pfx
+*.crt
+*.cer
+credentials*
+secrets*
+
+# Python and tooling
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+build/
+dist/
+*.egg-info/
+
+# Editors and operating systems
+.vscode/
+.idea/
+*.swp
+Thumbs.db
+.DS_Store
+# Local tool retrieval caches
+/.firecrawl/

@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=75,<76"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "enam-assessment"
+version = "0.1.0"
+description = "Foundation for the ENAM skills assessment"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "msoffcrypto-tool>=5.4,<6",
+    "openai>=2.0,<3",
+    "openpyxl>=3.1,<4",
+    "streamlit>=1.40,<2",
+]
+
+[project.optional-dependencies]
+dev = [
+    "mypy>=1.13,<2",
+    "pytest>=8.3,<9",
+    "ruff>=0.8,<1",
+    "types-openpyxl>=3.1,<4",
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+addopts = "--strict-config --strict-markers"
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+files = ["src", "app.py"]
+
+[[tool.mypy.overrides]]
+module = ["msoffcrypto", "msoffcrypto.*"]
+ignore_missing_imports = true

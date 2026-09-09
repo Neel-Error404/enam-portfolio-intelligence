@@ -1,0 +1,1581 @@
+{
+  "companies": [
+    {
+      "decision": {
+        "change_triggers": [
+          "Net leverage or cash conversion worsens materially",
+          "Electronics growth or RAC guidance is withdrawn",
+          "Base-case operating growth falls below the 25% price-CAGR hurdle"
+        ],
+        "common_drivers": [
+          "India consumer durables",
+          "electronics manufacturing",
+          "capital expenditure"
+        ],
+        "company_id": "amber",
+        "company_name": "Amber Enterprises India Limited",
+        "confidence": "medium",
+        "configuration_version": "phase5-prototype-1",
+        "contract_version": "phase5-company-decision-v1",
+        "current_price": "7308.0",
+        "decision_date": "2026-09-08",
+        "decision_snapshot_sha256": "014403f6ce1549d8b390a723870cbe709a18953782f6dffe6ae84ddd2b924e89",
+        "engine_version": "1.0.0",
+        "evidence_dates": [
+          [
+            "fundamental-1eb858fe9f6565c1",
+            "2026-05-16"
+          ],
+          [
+            "fundamental-982b62122ae89c16",
+            "2026-09-08"
+          ],
+          [
+            "fundamental-adbdf9c9faf91f36",
+            "2026-05-16"
+          ],
+          [
+            "fundamental-amber-adjusted-pat-fy26",
+            "2026-05-16"
+          ],
+          [
+            "fundamental-amber-reported-pat-fy26",
+            "2026-05-16"
+          ],
+          [
+            "fundamental-ce174b052e07074e",
+            "2026-05-16"
+          ],
+          [
+            "fundamental-d6fcf6d34b37a12d",
+            "2026-05-16"
+          ],
+          [
+            "fundamental-e1c16f99ae73902d",
+            "2026-05-16"
+          ],
+          [
+            "fundamental-ef4de454414fa76c",
+            "2026-05-16"
+          ],
+          [
+            "price-bd65ec54100fe2c5",
+            "2026-09-08"
+          ],
+          [
+            "research-amber-2026-05-16-p1-electronics-estimate",
+            "2026-05-16"
+          ],
+          [
+            "research-amber-2026-05-16-p1-rac-guidance",
+            "2026-05-16"
+          ],
+          [
+            "research-amber-2026-05-16-p1-working-capital",
+            "2026-05-16"
+          ]
+        ],
+        "evidence_ids": [
+          "fundamental-1eb858fe9f6565c1",
+          "fundamental-982b62122ae89c16",
+          "fundamental-adbdf9c9faf91f36",
+          "fundamental-amber-adjusted-pat-fy26",
+          "fundamental-amber-reported-pat-fy26",
+          "fundamental-ce174b052e07074e",
+          "fundamental-d6fcf6d34b37a12d",
+          "fundamental-e1c16f99ae73902d",
+          "fundamental-ef4de454414fa76c",
+          "price-bd65ec54100fe2c5",
+          "research-amber-2026-05-16-p1-electronics-estimate",
+          "research-amber-2026-05-16-p1-rac-guidance",
+          "research-amber-2026-05-16-p1-working-capital"
+        ],
+        "evidence_manifest_sha256": "be92698be561ae08e41763a539f0416ddfa754267692d7d5c8c173afd51488c6",
+        "final_portfolio_action": "review_required",
+        "hard_gates": [
+          {
+            "code": "balance_sheet_liquidity_and_funding",
+            "consequence": "none",
+            "evidence_ids": [
+              "fundamental-ce174b052e07074e",
+              "fundamental-d6fcf6d34b37a12d",
+              "fundamental-ef4de454414fa76c",
+              "fundamental-adbdf9c9faf91f36"
+            ],
+            "explanation": "Borrowings are material and reduce the score, but positive operating cash flow and the observed EBITDA do not cross the prototype sell gate.",
+            "status": "pass"
+          },
+          {
+            "code": "critical_decision_evidence",
+            "consequence": "none",
+            "evidence_ids": [
+              "fundamental-1eb858fe9f6565c1",
+              "fundamental-adbdf9c9faf91f36",
+              "price-bd65ec54100fe2c5"
+            ],
+            "explanation": "FY26 revenue, EBITDA, cash, borrowings, and a decision-date price support a bounded relative operating-value model.",
+            "status": "pass"
+          },
+          {
+            "code": "current_price",
+            "consequence": "none",
+            "evidence_ids": [
+              "price-bd65ec54100fe2c5"
+            ],
+            "explanation": "A validated adjusted close exists on the decision date.",
+            "status": "pass"
+          },
+          {
+            "code": "governance_and_alignment",
+            "consequence": "none",
+            "evidence_ids": [
+              "fundamental-982b62122ae89c16"
+            ],
+            "explanation": "No serious governance event is confirmed in the bounded snapshot; promoter ownership is evidence, not a complete governance review.",
+            "status": "pass"
+          },
+          {
+            "code": "material_evidence_conflict",
+            "consequence": "none",
+            "evidence_ids": [
+              "fundamental-amber-adjusted-pat-fy26",
+              "fundamental-amber-reported-pat-fy26"
+            ],
+            "explanation": "Adjusted and reported PAT differ by definition; neither is used as the operating-value denominator.",
+            "status": "pass"
+          },
+          {
+            "code": "thesis_and_valuation",
+            "consequence": "none",
+            "evidence_ids": [
+              "fundamental-1eb858fe9f6565c1",
+              "fundamental-adbdf9c9faf91f36",
+              "research-amber-2026-05-16-p1-electronics-estimate",
+              "research-amber-2026-05-16-p1-rac-guidance"
+            ],
+            "explanation": "No active thesis break is recorded and a transparent operating-value sensitivity can be constructed.",
+            "status": "pass"
+          }
+        ],
+        "historical_benchmark_context": {
+          "company": "Amber Enterprises",
+          "cost_weighted_secondary_relative_return": "1.488791714703951252915702759",
+          "cost_weighted_secondary_return": "0.3377478777876839239701320554",
+          "cost_weighted_stock_return": "1.826539592491635176885834816",
+          "eligible_lots": 191,
+          "primary_benchmark_matched_lots": 0,
+          "secondary_benchmark_matched_lots": 98,
+          "stock_matched_lots": 98,
+          "stock_matched_purchase_cost": "125566578.480000002502"
+        },
+        "human_review_reasons": [
+          "provisional_holdings_material_to_rebalance"
+        ],
+        "human_review_required": true,
+        "missing_data_flags": [
+          "Comparable long-run segment returns on capital",
+          "Debt maturity and covenant schedule",
+          "Independent end-market demand series",
+          "Multi-cycle acquisition and capital-allocation outcomes",
+          "Order-level return on incremental capital",
+          "Verified share count and independently reconstructed enterprise value"
+        ],
+        "price_date": "2026-09-08",
+        "primary_benchmark_id": "bse-500-tri",
+        "primary_benchmark_status": "unavailable_authentication_required",
+        "principle_scores": [
+          {
+            "counter_evidence_ids": [],
+            "data_quality": "high",
+            "dimension": "balance_sheet_conservatism",
+            "evidence_ids": [
+              "fundamental-d6fcf6d34b37a12d",
+              "fundamental-ce174b052e07074e",
+              "fundamental-adbdf9c9faf91f36",
+              "fundamental-ef4de454414fa76c"
+            ],
+            "missing_information": [
+              "Debt maturity and covenant schedule"
+            ],
+            "rule": "Borrowings less cash are high relative to FY26 EBITDA despite positive operating cash flow.",
+            "score": "2.0",
+            "weight": "0.20"
+          },
+          {
+            "counter_evidence_ids": [
+              "research-amber-2026-05-16-p1-working-capital"
+            ],
+            "data_quality": "medium",
+            "dimension": "business_quality_and_durability",
+            "evidence_ids": [
+              "fundamental-1eb858fe9f6565c1",
+              "fundamental-adbdf9c9faf91f36",
+              "fundamental-e1c16f99ae73902d"
+            ],
+            "missing_information": [
+              "Comparable long-run segment returns on capital"
+            ],
+            "rule": "Strong growth and operating scale, moderated by volatile working capital.",
+            "score": "4.0",
+            "weight": "0.20"
+          },
+          {
+            "counter_evidence_ids": [
+              "fundamental-d6fcf6d34b37a12d"
+            ],
+            "data_quality": "medium",
+            "dimension": "management_alignment_and_capital_allocation",
+            "evidence_ids": [
+              "fundamental-982b62122ae89c16",
+              "fundamental-ef4de454414fa76c"
+            ],
+            "missing_information": [
+              "Multi-cycle acquisition and capital-allocation outcomes"
+            ],
+            "rule": "Meaningful promoter ownership and positive cash generation, offset by leverage and limited allocation history.",
+            "score": "3.0",
+            "weight": "0.15"
+          },
+          {
+            "counter_evidence_ids": [
+              "research-amber-2026-05-16-p1-working-capital"
+            ],
+            "data_quality": "medium",
+            "dimension": "reinvestment_runway",
+            "evidence_ids": [
+              "research-amber-2026-05-16-p1-electronics-estimate",
+              "research-amber-2026-05-16-p1-rac-guidance"
+            ],
+            "missing_information": [
+              "Order-level return on incremental capital"
+            ],
+            "rule": "Electronics expansion and RAC guidance indicate a substantial runway.",
+            "score": "4.5",
+            "weight": "0.15"
+          },
+          {
+            "counter_evidence_ids": [],
+            "data_quality": "medium",
+            "dimension": "structural_growth",
+            "evidence_ids": [
+              "fundamental-e1c16f99ae73902d",
+              "research-amber-2026-05-16-p1-electronics-estimate",
+              "research-amber-2026-05-16-p1-rac-guidance"
+            ],
+            "missing_information": [
+              "Independent end-market demand series"
+            ],
+            "rule": "FY26 growth plus supplied electronics and RAC outlook support above-average growth.",
+            "score": "4.5",
+            "weight": "0.15"
+          },
+          {
+            "counter_evidence_ids": [
+              "fundamental-d6fcf6d34b37a12d"
+            ],
+            "data_quality": "medium",
+            "dimension": "valuation_and_expected_return",
+            "evidence_ids": [
+              "price-bd65ec54100fe2c5",
+              "fundamental-1eb858fe9f6565c1",
+              "fundamental-adbdf9c9faf91f36"
+            ],
+            "missing_information": [
+              "Verified share count and independently reconstructed enterprise value"
+            ],
+            "rule": "The base operating-value scenario clears the prototype 25% CAGR hurdle but is assumption-sensitive.",
+            "score": "4.0",
+            "weight": "0.15"
+          }
+        ],
+        "provisional_holdings": true,
+        "provisional_holdings_warning": "Workbook open lots are an unverified working holdings proxy; weights and actions are approximate and require owner confirmation before trading.",
+        "scenarios": [
+          {
+            "input": {
+              "annual_revenue_growth": "0.19",
+              "equity_bridge_factor": "0.95",
+              "evidence_ids": [
+                "price-bd65ec54100fe2c5",
+                "fundamental-1eb858fe9f6565c1",
+                "fundamental-adbdf9c9faf91f36",
+                "research-amber-2026-05-16-p1-electronics-estimate",
+                "research-amber-2026-05-16-p1-rac-guidance"
+              ],
+              "horizon_years": 3,
+              "multiple_change_factor": "0.98",
+              "name": "base",
+              "starting_operating_metric": "970",
+              "starting_price": "7308.0",
+              "starting_revenue": "12186",
+              "terminal_margin": "0.105"
+            },
+            "price_cagr": "0.274353065269013994919982530",
+            "target_price": "15124.04087476316696907216495",
+            "terminal_operating_metric": "2156.211495270",
+            "terminal_revenue": "20535.347574"
+          },
+          {
+            "input": {
+              "annual_revenue_growth": "0.08",
+              "equity_bridge_factor": "0.85",
+              "evidence_ids": [
+                "price-bd65ec54100fe2c5",
+                "fundamental-1eb858fe9f6565c1",
+                "fundamental-adbdf9c9faf91f36",
+                "fundamental-d6fcf6d34b37a12d",
+                "fundamental-ce174b052e07074e"
+              ],
+              "horizon_years": 3,
+              "multiple_change_factor": "0.65",
+              "name": "bear",
+              "starting_operating_metric": "970",
+              "starting_price": "7308.0",
+              "starting_revenue": "12186",
+              "terminal_margin": "0.07"
+            },
+            "price_cagr": "-0.1509557155120052633936085892",
+            "target_price": "4472.903895323856494845360825",
+            "terminal_operating_metric": "1074.55953024",
+            "terminal_revenue": "15350.850432"
+          },
+          {
+            "input": {
+              "annual_revenue_growth": "0.25",
+              "equity_bridge_factor": "1.00",
+              "evidence_ids": [
+                "price-bd65ec54100fe2c5",
+                "fundamental-1eb858fe9f6565c1",
+                "fundamental-adbdf9c9faf91f36",
+                "research-amber-2026-05-16-p1-electronics-estimate"
+              ],
+              "horizon_years": 3,
+              "multiple_change_factor": "1.05",
+              "name": "bull",
+              "starting_operating_metric": "970",
+              "starting_price": "7308.0",
+              "starting_revenue": "12186",
+              "terminal_margin": "0.12"
+            },
+            "price_cagr": "0.456789070607416680180541223",
+            "target_price": "22593.76266108247422680412371",
+            "terminal_operating_metric": "2856.09375000",
+            "terminal_revenue": "23800.781250"
+          }
+        ],
+        "secondary_benchmark_id": "nifty-500-tri",
+        "secondary_benchmark_status": "available_context_only",
+        "target_weight": "0.1430883218084060355312658397",
+        "underlying_stance": "sell",
+        "valuation_limitations": [
+          "Scenario values are a relative operating-value sensitivity, not an independent absolute valuation.",
+          "Scenario assumptions are prototype judgments and are not probability-weighted.",
+          "Verified diluted share counts and independently reconstructed enterprise values are not available consistently across all four companies."
+        ],
+        "weighted_principle_score": "3.600",
+        "working_cost_basis": "40462544.12",
+        "working_current_weight": "0.4832845796910237618442504735",
+        "working_shares": "50537.75"
+      },
+      "deployment_id": "gpt-5.6-terra",
+      "error": "Memo response changed immutable field 'memo_contract_version': expected 'company-memo-v1', received 'phase5-company-decision-v1'.",
+      "max_output_tokens": 6000,
+      "memo_contract_version": "company-memo-v1",
+      "memo_generation_status": "validation_failed",
+      "narrative": null,
+      "prompt_version": "company-memo-prompt-v1",
+      "provider": "azure_openai_responses",
+      "reasoning_effort": "medium",
+      "response_id": "resp_0af0c4fd0f2ce5a5006aa1df143d7881949917ad2f913cf2b4",
+      "usage": {
+        "input_tokens": 6104,
+        "output_tokens": 3222,
+        "total_tokens": 9326
+      }
+    },
+    {
+      "decision": {
+        "change_triggers": [
+          "Consolidated net debt falls below the configured sell threshold",
+          "Promoter encumbrance is released",
+          "Working-capital days improve with cash conversion"
+        ],
+        "common_drivers": [
+          "Indian infrastructure awards",
+          "mining execution",
+          "leverage and working capital"
+        ],
+        "company_id": "dbl",
+        "company_name": "Dilip Buildcon Limited",
+        "confidence": "low",
+        "configuration_version": "phase5-prototype-1",
+        "contract_version": "phase5-company-decision-v1",
+        "current_price": "393.54998779296875",
+        "decision_date": "2026-09-08",
+        "decision_snapshot_sha256": "014403f6ce1549d8b390a723870cbe709a18953782f6dffe6ae84ddd2b924e89",
+        "engine_version": "1.0.0",
+        "evidence_dates": [
+          [
+            "fundamental-45adc13be8367240",
+            "2026-09-08"
+          ],
+          [
+            "fundamental-670dd97c37c6fd3b",
+            "2026-09-08"
+          ],
+          [
+            "fundamental-79e80c48dd036555",
+            "2026-05-14"
+          ],
+          [
+            "fundamental-7dbb39273996c745",
+            "2026-05-14"
+          ],
+          [
+            "fundamental-86653f5748974c9a",
+            "2026-05-14"
+          ],
+          [
+            "fundamental-b3dd06efaec87764",
+            "2026-05-14"
+          ],
+          [
+            "fundamental-c02d7f1564a6c6e4",
+            "2026-05-14"
+          ],
+          [
+            "fundamental-dbl-consolidated-net-debt-fy26",
+            "2026-05-14"
+          ],
+          [
+            "fundamental-dbl-standalone-net-debt-fy26",
+            "2026-05-14"
+          ],
+          [
+            "price-9ccb6ec1f996ea08",
+            "2026-09-08"
+          ],
+          [
+            "research-dbl-2026-05-15-p1-debt-summary",
+            "2026-05-15"
+          ],
+          [
+            "research-dbl-2026-05-15-p1-epc-estimate",
+            "2026-05-15"
+          ],
+          [
+            "research-dbl-2026-05-15-p1-mdo-revenue",
+            "2026-05-15"
+          ],
+          [
+            "research-dbl-2026-05-15-p1-revenue-guidance",
+            "2026-05-15"
+          ],
+          [
+            "research-dbl-2026-05-15-p5-debt",
+            "2026-05-15"
+          ],
+          [
+            "research-dbl-2026-05-15-p5-mdo-revenue",
+            "2026-05-15"
+          ]
+        ],
+        "evidence_ids": [
+          "fundamental-45adc13be8367240",
+          "fundamental-670dd97c37c6fd3b",
+          "fundamental-79e80c48dd036555",
+          "fundamental-7dbb39273996c745",
+          "fundamental-86653f5748974c9a",
+          "fundamental-b3dd06efaec87764",
+          "fundamental-c02d7f1564a6c6e4",
+          "fundamental-dbl-consolidated-net-debt-fy26",
+          "fundamental-dbl-standalone-net-debt-fy26",
+          "price-9ccb6ec1f996ea08",
+          "research-dbl-2026-05-15-p1-debt-summary",
+          "research-dbl-2026-05-15-p1-epc-estimate",
+          "research-dbl-2026-05-15-p1-mdo-revenue",
+          "research-dbl-2026-05-15-p1-revenue-guidance",
+          "research-dbl-2026-05-15-p5-debt",
+          "research-dbl-2026-05-15-p5-mdo-revenue"
+        ],
+        "evidence_manifest_sha256": "be92698be561ae08e41763a539f0416ddfa754267692d7d5c8c173afd51488c6",
+        "final_portfolio_action": "review_required",
+        "hard_gates": [
+          {
+            "code": "balance_sheet_liquidity_and_funding",
+            "consequence": "sell",
+            "evidence_ids": [
+              "fundamental-dbl-consolidated-net-debt-fy26",
+              "fundamental-c02d7f1564a6c6e4",
+              "fundamental-7dbb39273996c745"
+            ],
+            "explanation": "Consolidated net debt is 4.10 times FY26 EBITDA, above the prototype 4.0-times sell threshold, with 131 working-capital days.",
+            "status": "fail"
+          },
+          {
+            "code": "critical_decision_evidence",
+            "consequence": "none",
+            "evidence_ids": [
+              "fundamental-b3dd06efaec87764",
+              "fundamental-c02d7f1564a6c6e4",
+              "fundamental-dbl-consolidated-net-debt-fy26",
+              "price-9ccb6ec1f996ea08"
+            ],
+            "explanation": "Revenue, EBITDA, consolidated net debt, and price are available.",
+            "status": "pass"
+          },
+          {
+            "code": "current_price",
+            "consequence": "none",
+            "evidence_ids": [
+              "price-9ccb6ec1f996ea08"
+            ],
+            "explanation": "A validated adjusted close exists on the decision date.",
+            "status": "pass"
+          },
+          {
+            "code": "governance_and_alignment",
+            "consequence": "review_required",
+            "evidence_ids": [
+              "fundamental-670dd97c37c6fd3b",
+              "fundamental-45adc13be8367240"
+            ],
+            "explanation": "High promoter ownership is countered by 8.94% of total capital recorded as promoter-encumbered.",
+            "status": "unknown"
+          },
+          {
+            "code": "material_evidence_conflict",
+            "consequence": "review_required",
+            "evidence_ids": [
+              "fundamental-dbl-consolidated-net-debt-fy26",
+              "fundamental-dbl-standalone-net-debt-fy26",
+              "research-dbl-2026-05-15-p1-debt-summary",
+              "research-dbl-2026-05-15-p5-debt"
+            ],
+            "explanation": "Debt values use different consolidation scopes; both are retained and the consolidated value controls the balance gate.",
+            "status": "unknown"
+          },
+          {
+            "code": "thesis_and_valuation",
+            "consequence": "none",
+            "evidence_ids": [
+              "fundamental-79e80c48dd036555",
+              "research-dbl-2026-05-15-p1-revenue-guidance",
+              "fundamental-b3dd06efaec87764",
+              "fundamental-c02d7f1564a6c6e4"
+            ],
+            "explanation": "Order book and growth guidance permit a sensitivity, but do not override the failed balance-sheet gate.",
+            "status": "pass"
+          }
+        ],
+        "historical_benchmark_context": {
+          "company": "Dilip Buildcon",
+          "cost_weighted_secondary_relative_return": "-0.5052735545580343349524609365",
+          "cost_weighted_secondary_return": "0.3140212652669549678535822561",
+          "cost_weighted_stock_return": "-0.1912522892910793670988786806",
+          "eligible_lots": 164,
+          "primary_benchmark_matched_lots": 0,
+          "secondary_benchmark_matched_lots": 146,
+          "stock_matched_lots": 146,
+          "stock_matched_purchase_cost": "77282134.8602239628643"
+        },
+        "human_review_reasons": [
+          "provisional_holdings_material_to_rebalance"
+        ],
+        "human_review_required": true,
+        "missing_data_flags": [
+          "Capital-allocation track record by project",
+          "Consolidated debt maturity and restricted-cash schedule",
+          "Independent award and execution conversion evidence",
+          "Order-book margin and cancellation detail",
+          "Project-level returns and claims quality",
+          "Reliable enterprise-value bridge and diluted share count"
+        ],
+        "price_date": "2026-09-08",
+        "primary_benchmark_id": "bse-500-tri",
+        "primary_benchmark_status": "unavailable_authentication_required",
+        "principle_scores": [
+          {
+            "counter_evidence_ids": [
+              "fundamental-dbl-standalone-net-debt-fy26"
+            ],
+            "data_quality": "high",
+            "dimension": "balance_sheet_conservatism",
+            "evidence_ids": [
+              "fundamental-dbl-consolidated-net-debt-fy26",
+              "fundamental-c02d7f1564a6c6e4",
+              "fundamental-7dbb39273996c745"
+            ],
+            "missing_information": [
+              "Consolidated debt maturity and restricted-cash schedule"
+            ],
+            "rule": "Consolidated net debt exceeds four times FY26 EBITDA and working capital is long.",
+            "score": "1.0",
+            "weight": "0.20"
+          },
+          {
+            "counter_evidence_ids": [
+              "fundamental-7dbb39273996c745"
+            ],
+            "data_quality": "medium",
+            "dimension": "business_quality_and_durability",
+            "evidence_ids": [
+              "fundamental-79e80c48dd036555",
+              "fundamental-c02d7f1564a6c6e4",
+              "fundamental-86653f5748974c9a"
+            ],
+            "missing_information": [
+              "Project-level returns and claims quality"
+            ],
+            "rule": "Large order book and reported EBITDA are offset by working-capital intensity.",
+            "score": "3.0",
+            "weight": "0.20"
+          },
+          {
+            "counter_evidence_ids": [
+              "fundamental-45adc13be8367240",
+              "fundamental-dbl-consolidated-net-debt-fy26"
+            ],
+            "data_quality": "medium",
+            "dimension": "management_alignment_and_capital_allocation",
+            "evidence_ids": [
+              "fundamental-670dd97c37c6fd3b"
+            ],
+            "missing_information": [
+              "Capital-allocation track record by project"
+            ],
+            "rule": "High ownership is offset by promoter encumbrance and a leveraged capital structure.",
+            "score": "2.0",
+            "weight": "0.15"
+          },
+          {
+            "counter_evidence_ids": [
+              "fundamental-7dbb39273996c745"
+            ],
+            "data_quality": "medium",
+            "dimension": "reinvestment_runway",
+            "evidence_ids": [
+              "fundamental-79e80c48dd036555",
+              "research-dbl-2026-05-15-p1-revenue-guidance",
+              "research-dbl-2026-05-15-p5-mdo-revenue"
+            ],
+            "missing_information": [
+              "Order-book margin and cancellation detail"
+            ],
+            "rule": "Order book and management order-inflow guidance indicate runway.",
+            "score": "4.0",
+            "weight": "0.15"
+          },
+          {
+            "counter_evidence_ids": [
+              "research-dbl-2026-05-15-p1-mdo-revenue"
+            ],
+            "data_quality": "medium",
+            "dimension": "structural_growth",
+            "evidence_ids": [
+              "research-dbl-2026-05-15-p1-epc-estimate",
+              "research-dbl-2026-05-15-p1-revenue-guidance",
+              "research-dbl-2026-05-15-p5-mdo-revenue"
+            ],
+            "missing_information": [
+              "Independent award and execution conversion evidence"
+            ],
+            "rule": "EPC and mining forecasts support growth, but are forward estimates and guidance.",
+            "score": "4.0",
+            "weight": "0.15"
+          },
+          {
+            "counter_evidence_ids": [
+              "research-dbl-2026-05-15-p1-revenue-guidance"
+            ],
+            "data_quality": "low",
+            "dimension": "valuation_and_expected_return",
+            "evidence_ids": [
+              "price-9ccb6ec1f996ea08",
+              "fundamental-b3dd06efaec87764",
+              "fundamental-c02d7f1564a6c6e4",
+              "fundamental-dbl-consolidated-net-debt-fy26"
+            ],
+            "missing_information": [
+              "Reliable enterprise-value bridge and diluted share count"
+            ],
+            "rule": "The base scenario does not preserve current value after explicit leverage haircuts.",
+            "score": "2.5",
+            "weight": "0.15"
+          }
+        ],
+        "provisional_holdings": true,
+        "provisional_holdings_warning": "Workbook open lots are an unverified working holdings proxy; weights and actions are approximate and require owner confirmation before trading.",
+        "scenarios": [
+          {
+            "input": {
+              "annual_revenue_growth": "0.15",
+              "equity_bridge_factor": "0.75",
+              "evidence_ids": [
+                "price-9ccb6ec1f996ea08",
+                "fundamental-b3dd06efaec87764",
+                "fundamental-c02d7f1564a6c6e4",
+                "fundamental-dbl-consolidated-net-debt-fy26",
+                "research-dbl-2026-05-15-p1-epc-estimate"
+              ],
+              "horizon_years": 3,
+              "multiple_change_factor": "0.85",
+              "name": "base",
+              "starting_operating_metric": "1766",
+              "starting_price": "393.54998779296875",
+              "starting_revenue": "8984",
+              "terminal_margin": "0.18"
+            },
+            "price_cagr": "-0.0388855949902640223531887970",
+            "target_price": "349.4018197530090833169282629",
+            "terminal_operating_metric": "2459.43738000",
+            "terminal_revenue": "13663.541000"
+          },
+          {
+            "input": {
+              "annual_revenue_growth": "-0.05",
+              "equity_bridge_factor": "0.60",
+              "evidence_ids": [
+                "price-9ccb6ec1f996ea08",
+                "fundamental-b3dd06efaec87764",
+                "fundamental-c02d7f1564a6c6e4",
+                "fundamental-dbl-consolidated-net-debt-fy26"
+              ],
+              "horizon_years": 3,
+              "multiple_change_factor": "0.65",
+              "name": "bear",
+              "starting_operating_metric": "1766",
+              "starting_price": "393.54998779296875",
+              "starting_revenue": "8984",
+              "terminal_margin": "0.13"
+            },
+            "price_cagr": "-0.3952824032127005429907291957",
+            "target_price": "87.02774338278463326926139582",
+            "terminal_operating_metric": "1001.34541000",
+            "terminal_revenue": "7702.657000"
+          },
+          {
+            "input": {
+              "annual_revenue_growth": "0.25",
+              "equity_bridge_factor": "0.85",
+              "evidence_ids": [
+                "price-9ccb6ec1f996ea08",
+                "fundamental-b3dd06efaec87764",
+                "fundamental-c02d7f1564a6c6e4",
+                "research-dbl-2026-05-15-p1-revenue-guidance"
+              ],
+              "horizon_years": 3,
+              "multiple_change_factor": "1.00",
+              "name": "bull",
+              "starting_operating_metric": "1766",
+              "starting_price": "393.54998779296875",
+              "starting_revenue": "8984",
+              "terminal_margin": "0.21"
+            },
+            "price_cagr": "0.210456261086242390238839518",
+            "target_price": "697.9867955304488185307987685",
+            "terminal_operating_metric": "3684.84375000",
+            "terminal_revenue": "17546.875000"
+          }
+        ],
+        "secondary_benchmark_id": "nifty-500-tri",
+        "secondary_benchmark_status": "available_context_only",
+        "target_weight": "0",
+        "underlying_stance": "sell",
+        "valuation_limitations": [
+          "Scenario values are a relative operating-value sensitivity, not an independent absolute valuation.",
+          "Scenario assumptions are prototype judgments and are not probability-weighted.",
+          "Verified diluted share counts and independently reconstructed enterprise values are not available consistently across all four companies."
+        ],
+        "weighted_principle_score": "2.675",
+        "working_cost_basis": "271423739.62",
+        "working_current_weight": "0.4197032718026040759943646131",
+        "working_shares": "814993.142857"
+      },
+      "deployment_id": "gpt-5.6-terra",
+      "error": "Not attempted because the single-company live smoke test did not produce a validated memo.",
+      "max_output_tokens": 6000,
+      "memo_contract_version": "company-memo-v1",
+      "memo_generation_status": "generation_failed",
+      "narrative": null,
+      "prompt_version": "company-memo-prompt-v1",
+      "provider": "azure_openai_responses",
+      "reasoning_effort": "medium",
+      "response_id": null,
+      "usage": null
+    },
+    {
+      "decision": {
+        "change_triggers": [
+          "ROCE improves sustainably",
+          "Net-debt reduction guidance is achieved or missed",
+          "Margin recovery diverges from the base case"
+        ],
+        "common_drivers": [
+          "Global home textiles",
+          "cotton and freight costs",
+          "capital expenditure"
+        ],
+        "company_id": "welspun",
+        "company_name": "Welspun Living Limited",
+        "confidence": "medium",
+        "configuration_version": "phase5-prototype-1",
+        "contract_version": "phase5-company-decision-v1",
+        "current_price": "207.8699951171875",
+        "decision_date": "2026-09-08",
+        "decision_snapshot_sha256": "014403f6ce1549d8b390a723870cbe709a18953782f6dffe6ae84ddd2b924e89",
+        "engine_version": "1.0.0",
+        "evidence_dates": [
+          [
+            "fundamental-163c0130e1a80b24",
+            "2026-09-02"
+          ],
+          [
+            "fundamental-28eeee982f34b8b5",
+            "2026-09-02"
+          ],
+          [
+            "fundamental-35e0c871992a62d5",
+            "2026-09-02"
+          ],
+          [
+            "fundamental-4b37945ed55d7c05",
+            "2026-09-02"
+          ],
+          [
+            "fundamental-8956bd3e4b3f0535",
+            "2026-09-02"
+          ],
+          [
+            "fundamental-b9187def6823edb9",
+            "2026-09-02"
+          ],
+          [
+            "fundamental-c05874765ba9f6a7",
+            "2026-09-02"
+          ],
+          [
+            "fundamental-d914f48fa6712812",
+            "2026-09-02"
+          ],
+          [
+            "fundamental-welspun-company-fcf-fy26",
+            "2026-09-02"
+          ],
+          [
+            "fundamental-welspun-ocf-minus-capex-fy26",
+            "2026-09-02"
+          ],
+          [
+            "price-c492bbff65cd3f25",
+            "2026-09-08"
+          ],
+          [
+            "research-welspun-2026-05-15-p1-estimates",
+            "2026-05-15"
+          ],
+          [
+            "research-welspun-2026-05-15-p2-guidance",
+            "2026-05-15"
+          ]
+        ],
+        "evidence_ids": [
+          "fundamental-163c0130e1a80b24",
+          "fundamental-28eeee982f34b8b5",
+          "fundamental-35e0c871992a62d5",
+          "fundamental-4b37945ed55d7c05",
+          "fundamental-8956bd3e4b3f0535",
+          "fundamental-b9187def6823edb9",
+          "fundamental-c05874765ba9f6a7",
+          "fundamental-d914f48fa6712812",
+          "fundamental-welspun-company-fcf-fy26",
+          "fundamental-welspun-ocf-minus-capex-fy26",
+          "price-c492bbff65cd3f25",
+          "research-welspun-2026-05-15-p1-estimates",
+          "research-welspun-2026-05-15-p2-guidance"
+        ],
+        "evidence_manifest_sha256": "be92698be561ae08e41763a539f0416ddfa754267692d7d5c8c173afd51488c6",
+        "final_portfolio_action": "hold",
+        "hard_gates": [
+          {
+            "code": "balance_sheet_liquidity_and_funding",
+            "consequence": "none",
+            "evidence_ids": [
+              "fundamental-8956bd3e4b3f0535",
+              "fundamental-c05874765ba9f6a7",
+              "fundamental-28eeee982f34b8b5",
+              "fundamental-b9187def6823edb9"
+            ],
+            "explanation": "Net debt is below one times FY26 EBITDA and operating cash flow exceeds disclosed capex.",
+            "status": "pass"
+          },
+          {
+            "code": "critical_decision_evidence",
+            "consequence": "none",
+            "evidence_ids": [
+              "fundamental-d914f48fa6712812",
+              "fundamental-c05874765ba9f6a7",
+              "fundamental-8956bd3e4b3f0535",
+              "price-c492bbff65cd3f25"
+            ],
+            "explanation": "Revenue, EBITDA, net debt, cash flow, and price support a bounded valuation sensitivity.",
+            "status": "pass"
+          },
+          {
+            "code": "current_price",
+            "consequence": "none",
+            "evidence_ids": [
+              "price-c492bbff65cd3f25"
+            ],
+            "explanation": "A validated adjusted close exists on the decision date.",
+            "status": "pass"
+          },
+          {
+            "code": "governance_and_alignment",
+            "consequence": "none",
+            "evidence_ids": [
+              "fundamental-35e0c871992a62d5",
+              "fundamental-4b37945ed55d7c05"
+            ],
+            "explanation": "No confirmed sell-mapped governance event is present; low returns on capital constrain the score.",
+            "status": "pass"
+          },
+          {
+            "code": "material_evidence_conflict",
+            "consequence": "none",
+            "evidence_ids": [
+              "fundamental-welspun-company-fcf-fy26",
+              "fundamental-welspun-ocf-minus-capex-fy26"
+            ],
+            "explanation": "The two free-cash-flow figures use different definitions; both remain visible and neither drives the EBITDA scenario.",
+            "status": "pass"
+          },
+          {
+            "code": "thesis_and_valuation",
+            "consequence": "none",
+            "evidence_ids": [
+              "fundamental-d914f48fa6712812",
+              "fundamental-c05874765ba9f6a7",
+              "research-welspun-2026-05-15-p2-guidance"
+            ],
+            "explanation": "A margin-recovery sensitivity can be constructed; the base case does not clear the 25% hurdle.",
+            "status": "pass"
+          }
+        ],
+        "historical_benchmark_context": {
+          "company": "Welspun Living",
+          "cost_weighted_secondary_relative_return": "0.06910901575403702221305939485",
+          "cost_weighted_secondary_return": "0.2879925789483033818581688622",
+          "cost_weighted_stock_return": "0.3571015947023404040712282566",
+          "eligible_lots": 229,
+          "primary_benchmark_matched_lots": 0,
+          "secondary_benchmark_matched_lots": 229,
+          "stock_matched_lots": 229,
+          "stock_matched_purchase_cost": "19139381.02070000010902"
+        },
+        "human_review_reasons": [],
+        "human_review_required": false,
+        "missing_data_flags": [
+          "Comparable capital-allocation record",
+          "Debt maturity schedule",
+          "Incremental ROCE on recent capex",
+          "Independent demand and market-share series",
+          "Segment-level normalized margins",
+          "Verified share count and independent enterprise-value bridge"
+        ],
+        "price_date": "2026-09-08",
+        "primary_benchmark_id": "bse-500-tri",
+        "primary_benchmark_status": "unavailable_authentication_required",
+        "principle_scores": [
+          {
+            "counter_evidence_ids": [
+              "fundamental-163c0130e1a80b24"
+            ],
+            "data_quality": "high",
+            "dimension": "balance_sheet_conservatism",
+            "evidence_ids": [
+              "fundamental-8956bd3e4b3f0535",
+              "fundamental-c05874765ba9f6a7",
+              "fundamental-28eeee982f34b8b5",
+              "fundamental-b9187def6823edb9"
+            ],
+            "missing_information": [
+              "Debt maturity schedule"
+            ],
+            "rule": "Net debt is below FY26 EBITDA and operating cash flow covers disclosed capex.",
+            "score": "3.5",
+            "weight": "0.20"
+          },
+          {
+            "counter_evidence_ids": [
+              "fundamental-35e0c871992a62d5",
+              "fundamental-4b37945ed55d7c05"
+            ],
+            "data_quality": "medium",
+            "dimension": "business_quality_and_durability",
+            "evidence_ids": [
+              "fundamental-d914f48fa6712812",
+              "fundamental-c05874765ba9f6a7",
+              "fundamental-28eeee982f34b8b5"
+            ],
+            "missing_information": [
+              "Segment-level normalized margins"
+            ],
+            "rule": "Scale and positive cash flow are offset by low reported returns on capital.",
+            "score": "3.0",
+            "weight": "0.20"
+          },
+          {
+            "counter_evidence_ids": [
+              "fundamental-welspun-ocf-minus-capex-fy26",
+              "fundamental-4b37945ed55d7c05"
+            ],
+            "data_quality": "medium",
+            "dimension": "management_alignment_and_capital_allocation",
+            "evidence_ids": [
+              "fundamental-welspun-company-fcf-fy26"
+            ],
+            "missing_information": [
+              "Comparable capital-allocation record"
+            ],
+            "rule": "Strong stated cash generation is moderated by low ROCE and conflicting FCF definitions.",
+            "score": "2.5",
+            "weight": "0.15"
+          },
+          {
+            "counter_evidence_ids": [
+              "fundamental-4b37945ed55d7c05"
+            ],
+            "data_quality": "medium",
+            "dimension": "reinvestment_runway",
+            "evidence_ids": [
+              "fundamental-b9187def6823edb9",
+              "research-welspun-2026-05-15-p2-guidance"
+            ],
+            "missing_information": [
+              "Incremental ROCE on recent capex"
+            ],
+            "rule": "Capex and margin guidance indicate opportunity, but returns remain unproven.",
+            "score": "3.0",
+            "weight": "0.15"
+          },
+          {
+            "counter_evidence_ids": [],
+            "data_quality": "medium",
+            "dimension": "structural_growth",
+            "evidence_ids": [
+              "research-welspun-2026-05-15-p2-guidance"
+            ],
+            "missing_information": [
+              "Independent demand and market-share series"
+            ],
+            "rule": "Double-digit guidance supports growth, but evidence is management guidance rather than achieved results.",
+            "score": "3.0",
+            "weight": "0.15"
+          },
+          {
+            "counter_evidence_ids": [
+              "fundamental-35e0c871992a62d5",
+              "fundamental-4b37945ed55d7c05"
+            ],
+            "data_quality": "medium",
+            "dimension": "valuation_and_expected_return",
+            "evidence_ids": [
+              "price-c492bbff65cd3f25",
+              "fundamental-d914f48fa6712812",
+              "fundamental-c05874765ba9f6a7"
+            ],
+            "missing_information": [
+              "Verified share count and independent enterprise-value bridge"
+            ],
+            "rule": "The base margin-recovery scenario is positive but below the 25% CAGR hurdle.",
+            "score": "3.0",
+            "weight": "0.15"
+          }
+        ],
+        "provisional_holdings": true,
+        "provisional_holdings_warning": "Workbook open lots are an unverified working holdings proxy; weights and actions are approximate and require owner confirmation before trading.",
+        "scenarios": [
+          {
+            "input": {
+              "annual_revenue_growth": "0.12",
+              "equity_bridge_factor": "0.98",
+              "evidence_ids": [
+                "price-c492bbff65cd3f25",
+                "fundamental-d914f48fa6712812",
+                "fundamental-c05874765ba9f6a7",
+                "research-welspun-2026-05-15-p2-guidance"
+              ],
+              "horizon_years": 3,
+              "multiple_change_factor": "0.90",
+              "name": "base",
+              "starting_operating_metric": "862.01",
+              "starting_price": "207.8699951171875",
+              "starting_revenue": "9399",
+              "terminal_margin": "0.12"
+            },
+            "price_cagr": "0.174783256797037064015983520",
+            "target_price": "337.0272763021487453741835943",
+            "terminal_operating_metric": "1584.59019264",
+            "terminal_revenue": "13204.918272"
+          },
+          {
+            "input": {
+              "annual_revenue_growth": "-0.02",
+              "equity_bridge_factor": "0.90",
+              "evidence_ids": [
+                "price-c492bbff65cd3f25",
+                "fundamental-d914f48fa6712812",
+                "fundamental-c05874765ba9f6a7",
+                "fundamental-8956bd3e4b3f0535"
+              ],
+              "horizon_years": 3,
+              "multiple_change_factor": "0.75",
+              "name": "bear",
+              "starting_operating_metric": "862.01",
+              "starting_price": "207.8699951171875",
+              "starting_revenue": "9399",
+              "terminal_margin": "0.07"
+            },
+            "price_cagr": "-0.2143728892810621823687703887",
+            "target_price": "100.7955111011064973348083259",
+            "terminal_operating_metric": "619.23845256",
+            "terminal_revenue": "8846.263608"
+          },
+          {
+            "input": {
+              "annual_revenue_growth": "0.18",
+              "equity_bridge_factor": "1.00",
+              "evidence_ids": [
+                "price-c492bbff65cd3f25",
+                "fundamental-d914f48fa6712812",
+                "fundamental-c05874765ba9f6a7",
+                "research-welspun-2026-05-15-p1-estimates",
+                "research-welspun-2026-05-15-p2-guidance"
+              ],
+              "horizon_years": 3,
+              "multiple_change_factor": "1.00",
+              "name": "bull",
+              "starting_operating_metric": "862.01",
+              "starting_price": "207.8699951171875",
+              "starting_revenue": "9399",
+              "terminal_margin": "0.14"
+            },
+            "price_cagr": "0.358671506734442887582010437",
+            "target_price": "521.3570000767292115593206574",
+            "terminal_operating_metric": "2162.00008752",
+            "terminal_revenue": "15442.857768"
+          }
+        ],
+        "secondary_benchmark_id": "nifty-500-tri",
+        "secondary_benchmark_status": "available_context_only",
+        "target_weight": "0.05524632111964297815658162585",
+        "underlying_stance": "hold",
+        "valuation_limitations": [
+          "Scenario values are a relative operating-value sensitivity, not an independent absolute valuation.",
+          "Scenario assumptions are prototype judgments and are not probability-weighted.",
+          "Verified diluted share counts and independently reconstructed enterprise values are not available consistently across all four companies."
+        ],
+        "weighted_principle_score": "3.025",
+        "working_cost_basis": "20946080.58",
+        "working_current_weight": "0.08665939637724844770859548223",
+        "working_shares": "318592.36"
+      },
+      "deployment_id": "gpt-5.6-terra",
+      "error": "Not attempted because the single-company live smoke test did not produce a validated memo.",
+      "max_output_tokens": 6000,
+      "memo_contract_version": "company-memo-v1",
+      "memo_generation_status": "generation_failed",
+      "narrative": null,
+      "prompt_version": "company-memo-prompt-v1",
+      "provider": "azure_openai_responses",
+      "reasoning_effort": "medium",
+      "response_id": null,
+      "usage": null
+    },
+    {
+      "decision": {
+        "change_triggers": [
+          "Sustained core EBITDA recovery",
+          "Clear management growth and margin guidance",
+          "Evidence of stronger alignment or capital returns"
+        ],
+        "common_drivers": [
+          "Indian advertising cycle",
+          "linear television transition",
+          "digital execution"
+        ],
+        "company_id": "zee",
+        "company_name": "Zee Entertainment Enterprises Limited",
+        "confidence": "low",
+        "configuration_version": "phase5-prototype-1",
+        "contract_version": "phase5-company-decision-v1",
+        "current_price": "86.30999755859375",
+        "decision_date": "2026-09-08",
+        "decision_snapshot_sha256": "014403f6ce1549d8b390a723870cbe709a18953782f6dffe6ae84ddd2b924e89",
+        "engine_version": "1.0.0",
+        "evidence_dates": [
+          [
+            "fundamental-2c2f44ce000554d3",
+            "2026-08-10"
+          ],
+          [
+            "fundamental-2c4d942040875295",
+            "2026-08-10"
+          ],
+          [
+            "fundamental-4d52fd4a962dee07",
+            "2026-08-10"
+          ],
+          [
+            "fundamental-5bdb226df2ca447b",
+            "2026-08-10"
+          ],
+          [
+            "fundamental-b2ce864a0cbf21b1",
+            "2026-08-10"
+          ],
+          [
+            "fundamental-zee-adjusted-ebitda-fy26",
+            "2026-08-10"
+          ],
+          [
+            "fundamental-zee-reported-ebitda-fy26",
+            "2026-08-10"
+          ],
+          [
+            "price-dc8d7c8637c66233",
+            "2026-09-08"
+          ],
+          [
+            "research-zee-2026-05-20-p1-forecast",
+            "2026-05-20"
+          ],
+          [
+            "research-zee-2026-05-20-p1-fy26-summary",
+            "2026-05-20"
+          ],
+          [
+            "research-zee-2026-05-20-p1-opinion",
+            "2026-05-20"
+          ],
+          [
+            "research-zee-2026-05-20-p1-q4-results",
+            "2026-05-20"
+          ],
+          [
+            "research-zee-2026-05-20-p2-management",
+            "2026-05-20"
+          ]
+        ],
+        "evidence_ids": [
+          "fundamental-2c2f44ce000554d3",
+          "fundamental-2c4d942040875295",
+          "fundamental-4d52fd4a962dee07",
+          "fundamental-5bdb226df2ca447b",
+          "fundamental-b2ce864a0cbf21b1",
+          "fundamental-zee-adjusted-ebitda-fy26",
+          "fundamental-zee-reported-ebitda-fy26",
+          "price-dc8d7c8637c66233",
+          "research-zee-2026-05-20-p1-forecast",
+          "research-zee-2026-05-20-p1-fy26-summary",
+          "research-zee-2026-05-20-p1-opinion",
+          "research-zee-2026-05-20-p1-q4-results",
+          "research-zee-2026-05-20-p2-management"
+        ],
+        "evidence_manifest_sha256": "be92698be561ae08e41763a539f0416ddfa754267692d7d5c8c173afd51488c6",
+        "final_portfolio_action": "hold",
+        "hard_gates": [
+          {
+            "code": "balance_sheet_liquidity_and_funding",
+            "consequence": "none",
+            "evidence_ids": [
+              "fundamental-b2ce864a0cbf21b1",
+              "fundamental-2c4d942040875295",
+              "fundamental-2c2f44ce000554d3"
+            ],
+            "explanation": "Cash and treasury investments materially exceed debt including leases, with positive operating cash flow.",
+            "status": "pass"
+          },
+          {
+            "code": "critical_decision_evidence",
+            "consequence": "none",
+            "evidence_ids": [
+              "fundamental-5bdb226df2ca447b",
+              "fundamental-zee-adjusted-ebitda-fy26",
+              "price-dc8d7c8637c66233"
+            ],
+            "explanation": "Revenue, adjusted EBITDA, cash, debt, and current price are available.",
+            "status": "pass"
+          },
+          {
+            "code": "current_price",
+            "consequence": "none",
+            "evidence_ids": [
+              "price-dc8d7c8637c66233"
+            ],
+            "explanation": "A validated adjusted close exists on the decision date.",
+            "status": "pass"
+          },
+          {
+            "code": "governance_and_alignment",
+            "consequence": "none",
+            "evidence_ids": [
+              "fundamental-4d52fd4a962dee07"
+            ],
+            "explanation": "No confirmed sell-mapped governance event is present; low promoter ownership is reflected in the score and remains a limitation.",
+            "status": "pass"
+          },
+          {
+            "code": "material_evidence_conflict",
+            "consequence": "none",
+            "evidence_ids": [
+              "fundamental-zee-adjusted-ebitda-fy26",
+              "fundamental-zee-reported-ebitda-fy26"
+            ],
+            "explanation": "Reported and adjusted EBITDA are retained as distinct definitions; adjusted EBITDA is used consistently in scenarios.",
+            "status": "pass"
+          },
+          {
+            "code": "thesis_and_valuation",
+            "consequence": "none",
+            "evidence_ids": [
+              "fundamental-5bdb226df2ca447b",
+              "fundamental-zee-adjusted-ebitda-fy26",
+              "research-zee-2026-05-20-p1-fy26-summary",
+              "research-zee-2026-05-20-p2-management"
+            ],
+            "explanation": "A recovery sensitivity is possible, but weak growth and operating evidence reduce the score rather than trigger a binary gate.",
+            "status": "pass"
+          }
+        ],
+        "historical_benchmark_context": {
+          "company": "Zee Entertainment Enterprises",
+          "cost_weighted_secondary_relative_return": "-0.5695990191535172427730620942",
+          "cost_weighted_secondary_return": "0.2966732238060992089242670991",
+          "cost_weighted_stock_return": "-0.2729257953474180338487949952",
+          "eligible_lots": 128,
+          "primary_benchmark_matched_lots": 0,
+          "secondary_benchmark_matched_lots": 128,
+          "stock_matched_lots": 128,
+          "stock_matched_purchase_cost": "24911781.1282400003585399"
+        },
+        "human_review_reasons": [],
+        "human_review_required": false,
+        "missing_data_flags": [
+          "Comparable digital and linear segment economics",
+          "Detailed capital-return and governance remediation evidence",
+          "Digital unit economics and incremental returns",
+          "Management growth guidance",
+          "Restricted-cash breakdown",
+          "Verified share count for an absolute equity bridge"
+        ],
+        "price_date": "2026-09-08",
+        "primary_benchmark_id": "bse-500-tri",
+        "primary_benchmark_status": "unavailable_authentication_required",
+        "principle_scores": [
+          {
+            "counter_evidence_ids": [],
+            "data_quality": "high",
+            "dimension": "balance_sheet_conservatism",
+            "evidence_ids": [
+              "fundamental-b2ce864a0cbf21b1",
+              "fundamental-2c4d942040875295",
+              "fundamental-2c2f44ce000554d3"
+            ],
+            "missing_information": [
+              "Restricted-cash breakdown"
+            ],
+            "rule": "Cash and treasury investments substantially exceed debt and operating cash flow is positive.",
+            "score": "4.5",
+            "weight": "0.20"
+          },
+          {
+            "counter_evidence_ids": [
+              "research-zee-2026-05-20-p1-fy26-summary",
+              "research-zee-2026-05-20-p1-q4-results"
+            ],
+            "data_quality": "medium",
+            "dimension": "business_quality_and_durability",
+            "evidence_ids": [
+              "fundamental-5bdb226df2ca447b",
+              "fundamental-2c2f44ce000554d3"
+            ],
+            "missing_information": [
+              "Comparable digital and linear segment economics"
+            ],
+            "rule": "Large revenue base and cash generation are offset by declining adjusted EBITDA and core operating weakness.",
+            "score": "2.5",
+            "weight": "0.20"
+          },
+          {
+            "counter_evidence_ids": [
+              "fundamental-b2ce864a0cbf21b1"
+            ],
+            "data_quality": "medium",
+            "dimension": "management_alignment_and_capital_allocation",
+            "evidence_ids": [
+              "fundamental-4d52fd4a962dee07",
+              "research-zee-2026-05-20-p2-management"
+            ],
+            "missing_information": [
+              "Detailed capital-return and governance remediation evidence"
+            ],
+            "rule": "Low promoter ownership and absent FY27 guidance weaken alignment and allocation confidence.",
+            "score": "1.5",
+            "weight": "0.15"
+          },
+          {
+            "counter_evidence_ids": [
+              "research-zee-2026-05-20-p1-q4-results"
+            ],
+            "data_quality": "low",
+            "dimension": "reinvestment_runway",
+            "evidence_ids": [
+              "research-zee-2026-05-20-p2-management"
+            ],
+            "missing_information": [
+              "Digital unit economics and incremental returns"
+            ],
+            "rule": "Network reach exists, but the snapshot does not establish high-return reinvestment opportunities.",
+            "score": "2.0",
+            "weight": "0.15"
+          },
+          {
+            "counter_evidence_ids": [
+              "research-zee-2026-05-20-p1-fy26-summary"
+            ],
+            "data_quality": "medium",
+            "dimension": "structural_growth",
+            "evidence_ids": [
+              "research-zee-2026-05-20-p1-forecast"
+            ],
+            "missing_information": [
+              "Management growth guidance"
+            ],
+            "rule": "Analyst sales forecasts are modest and FY26 reported revenue declined.",
+            "score": "2.0",
+            "weight": "0.15"
+          },
+          {
+            "counter_evidence_ids": [
+              "research-zee-2026-05-20-p1-opinion"
+            ],
+            "data_quality": "medium",
+            "dimension": "valuation_and_expected_return",
+            "evidence_ids": [
+              "price-dc8d7c8637c66233",
+              "fundamental-5bdb226df2ca447b",
+              "fundamental-zee-adjusted-ebitda-fy26"
+            ],
+            "missing_information": [
+              "Verified share count for an absolute equity bridge"
+            ],
+            "rule": "The base recovery sensitivity remains below the 25% hurdle; the analyst target is context only.",
+            "score": "2.5",
+            "weight": "0.15"
+          }
+        ],
+        "provisional_holdings": true,
+        "provisional_holdings_warning": "Workbook open lots are an unverified working holdings proxy; weights and actions are approximate and require owner confirmation before trading.",
+        "scenarios": [
+          {
+            "input": {
+              "annual_revenue_growth": "0.05",
+              "equity_bridge_factor": "1.00",
+              "evidence_ids": [
+                "price-dc8d7c8637c66233",
+                "fundamental-5bdb226df2ca447b",
+                "fundamental-zee-adjusted-ebitda-fy26",
+                "research-zee-2026-05-20-p1-forecast"
+              ],
+              "horizon_years": 3,
+              "multiple_change_factor": "0.85",
+              "name": "base",
+              "starting_operating_metric": "754.7",
+              "starting_price": "86.30999755859375",
+              "starting_revenue": "8098.9",
+              "terminal_margin": "0.10"
+            },
+            "price_cagr": "0.018308814819250859987982627",
+            "target_price": "91.13802518204885270242677142",
+            "terminal_operating_metric": "937.548911250",
+            "terminal_revenue": "9375.4891125"
+          },
+          {
+            "input": {
+              "annual_revenue_growth": "-0.04",
+              "equity_bridge_factor": "1.00",
+              "evidence_ids": [
+                "price-dc8d7c8637c66233",
+                "fundamental-5bdb226df2ca447b",
+                "fundamental-zee-adjusted-ebitda-fy26",
+                "research-zee-2026-05-20-p1-fy26-summary"
+              ],
+              "horizon_years": 3,
+              "multiple_change_factor": "0.70",
+              "name": "bear",
+              "starting_operating_metric": "754.7",
+              "starting_price": "86.30999755859375",
+              "starting_revenue": "8098.9",
+              "terminal_margin": "0.05"
+            },
+            "price_cagr": "-0.3073542985125692428368588779",
+            "target_price": "28.68101617445740029150655890",
+            "terminal_operating_metric": "358.269419520",
+            "terminal_revenue": "7165.3883904"
+          },
+          {
+            "input": {
+              "annual_revenue_growth": "0.10",
+              "equity_bridge_factor": "1.00",
+              "evidence_ids": [
+                "price-dc8d7c8637c66233",
+                "fundamental-5bdb226df2ca447b",
+                "fundamental-zee-adjusted-ebitda-fy26",
+                "research-zee-2026-05-20-p1-forecast"
+              ],
+              "horizon_years": 3,
+              "multiple_change_factor": "1.00",
+              "name": "bull",
+              "starting_operating_metric": "754.7",
+              "starting_price": "86.30999755859375",
+              "starting_revenue": "8098.9",
+              "terminal_margin": "0.13"
+            },
+            "price_cagr": "0.229110790663941457760383794",
+            "target_price": "160.2633434046625683477292302",
+            "terminal_operating_metric": "1401.352667000",
+            "terminal_revenue": "10779.6359000"
+          }
+        ],
+        "secondary_benchmark_id": "nifty-500-tri",
+        "secondary_benchmark_status": "available_context_only",
+        "target_weight": "0",
+        "underlying_stance": "sell",
+        "valuation_limitations": [
+          "Scenario values are a relative operating-value sensitivity, not an independent absolute valuation.",
+          "Scenario assumptions are prototype judgments and are not probability-weighted.",
+          "Verified diluted share counts and independently reconstructed enterprise values are not available consistently across all four companies."
+        ],
+        "weighted_principle_score": "2.600",
+        "working_cost_basis": "11405773.42",
+        "working_current_weight": "0.01035275212912371445278943117",
+        "working_shares": "91665.564"
+      },
+      "deployment_id": "gpt-5.6-terra",
+      "error": "Not attempted because the single-company live smoke test did not produce a validated memo.",
+      "max_output_tokens": 6000,
+      "memo_contract_version": "company-memo-v1",
+      "memo_generation_status": "generation_failed",
+      "narrative": null,
+      "prompt_version": "company-memo-prompt-v1",
+      "provider": "azure_openai_responses",
+      "reasoning_effort": "medium",
+      "response_id": null,
+      "usage": null
+    }
+  ],
+  "memo_contract_version": "company-memo-v1",
+  "prompt_version": "company-memo-prompt-v1"
+}

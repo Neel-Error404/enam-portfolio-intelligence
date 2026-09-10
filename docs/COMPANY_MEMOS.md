@@ -1,5 +1,10 @@
 # Company Memos
 
+> **Historical Phase 7 artifact.** The statuses below preserve the original memo smoke-test
+> outcome. They are not the status of the later Phase 8 interactive Portfolio Intelligence path,
+> which is documented in [Portfolio Intelligence Application](PORTFOLIO_INTELLIGENCE_APP.md) and
+> [Phase 8 Verification](PHASE8A_VERIFICATION.md).
+
 These memos explain the frozen deterministic Phase 5 decisions. The model does not calculate or alter scores, valuations, weights, stances, or actions.
 
 ## Amber Enterprises India Limited

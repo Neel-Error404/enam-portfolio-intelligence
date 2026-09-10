@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "enam-assessment"
 version = "0.1.0"
-description = "Foundation for the ENAM skills assessment"
+description = "Supervised portfolio-intelligence prototype with deterministic decisions and bounded AI explanations"
 requires-python = ">=3.12,<3.13"
 dependencies = [
     "msoffcrypto-tool>=5.4,<6",

@@ -1,5 +1,10 @@
 # Streamlit Portfolio Intelligence
 
+> **Foundation and Phase 7 reference.** The current connected Phase 8 workflow, shared question
+> dialog, session overlays and claim-level provenance are documented in
+> [Portfolio Intelligence Application](PORTFOLIO_INTELLIGENCE_APP.md). This file preserves the
+> earlier application contract and validation history.
+
 ## Purpose
 
 The application is a read-only presentation layer over the frozen analytical artifacts. It is for

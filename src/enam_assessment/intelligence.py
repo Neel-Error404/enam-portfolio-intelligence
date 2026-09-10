@@ -10,6 +10,7 @@ from datetime import date
 from decimal import Decimal
 from enum import StrEnum
 from hashlib import sha256
+from pathlib import Path
 from typing import Any, cast
 
 from .errors import MemoProviderError, QuestionContextError, QuestionValidationError
@@ -26,7 +27,7 @@ from .portfolio_ui import DashboardData
 ANSWER_CONTRACT_VERSION = "portfolio-answer-v1"
 ANSWER_PROMPT_VERSION = "portfolio-intelligence-prompt-v1"
 CHARS_PER_TOKEN = 4
-DEFAULT_QUESTION_INPUT_TOKENS = 2500
+DEFAULT_QUESTION_INPUT_TOKENS = 4000
 DEFAULT_BRIEF_INPUT_TOKENS = 3500
 MAX_ANSWER_WORDS = 450
 HISTORY_EXCERPT_CHARACTERS = 420
@@ -422,8 +423,9 @@ def build_question_context(
     selected_artifacts: tuple[SelectedArtifact, ...] = (),
     conversation_history: tuple[ConversationHistoryItem, ...] = (),
     input_token_budget: int = DEFAULT_QUESTION_INPUT_TOKENS,
+    system_prompt: str | None = None,
 ) -> QuestionContext:
-    """Select compact decision/evidence fields deterministically for the requested scope."""
+    """Budget the complete request; default prompt loading requires the application root."""
     normalized = normalize_question(question)
     overhead_tokens = (
         REQUEST_OVERHEAD_TOKENS
@@ -434,6 +436,15 @@ def build_question_context(
         raise QuestionContextError(
             f"Input-token budget must exceed the {overhead_tokens}-token request overhead reserve."
         )
+    if system_prompt is None:
+        prompt_path = Path("prompts") / "portfolio_intelligence_prompt_v1.txt"
+        try:
+            system_prompt = prompt_path.read_text(encoding="utf-8")
+        except (OSError, UnicodeError) as exc:
+            raise QuestionContextError(
+                f"Cannot load the interactive prompt at {prompt_path.resolve()}. "
+                "Run from the application root or supply system_prompt explicitly."
+            ) from exc
     selected_ids = _validated_scope(data, scope, company_ids, scenario_delta)
     overlay = active_overlay or calculate_holdings_overlay(data.decisions)
     _validate_overlay(data, overlay)
@@ -532,8 +543,47 @@ def build_question_context(
     protected_ids.update(
         evidence_id for artifact in artifacts for evidence_id in artifact.required_evidence_ids
     )
+
+    def selected_context() -> QuestionContext:
+        payload_for_hash = {
+            **base,
+            "evidence": [item.stable_payload() for item in included],
+            "included_evidence_ids": [item.evidence_id for item in included],
+            "excluded_evidence_ids": sorted(excluded),
+        }
+        context_hash = sha256(_canonical_json(payload_for_hash).encode("utf-8")).hexdigest()
+        return QuestionContext(
+            scope=scope,
+            normalized_question=normalized,
+            company_ids=identity_ids,
+            decision_snapshot_sha256=str(data.portfolio["snapshot_sha256"]),
+            context_hash=context_hash,
+            decision_facts=decision_facts,
+            evidence=tuple(included),
+            included_evidence_ids=tuple(item.evidence_id for item in included),
+            excluded_evidence_ids=tuple(sorted(excluded)),
+            analysis_context=analysis_context,
+            scenario_delta=scenario_payload,
+            active_portfolio=active_portfolio,
+            selected_artifacts=artifacts,
+            conversation_history=tuple(history),
+            serialized_characters=_serialized_size(base, included),
+            input_token_budget=input_token_budget,
+        )
+
     context_character_budget = (input_token_budget - overhead_tokens) * CHARS_PER_TOKEN
-    while _serialized_size(base, included) > context_character_budget:
+    while included:
+        context = selected_context()
+        estimate = estimated_request_tokens(
+            context,
+            system_prompt=system_prompt,
+            response_schema=answer_response_json_schema(context),
+        )
+        if (
+            context.serialized_characters <= context_character_budget
+            and estimate <= input_token_budget
+        ):
+            return context
         removable_index = next(
             (
                 index
@@ -549,43 +599,13 @@ def build_question_context(
             history.pop(0)
             base["conversation_history"] = [item.model_payload() for item in history]
             continue
-        break
-    excluded.sort()
-    size = _serialized_size(base, included)
-    if size > context_character_budget:
         raise QuestionContextError(
             f"Request too broad for the {input_token_budget}-token input budget. Narrow the scope "
             "or question."
         )
-    if not included:
-        raise QuestionContextError(
-            "Request budget leaves no citable evidence. Narrow the question or increase the "
-            "explicit input-token budget."
-        )
-    payload_for_hash = {
-        **base,
-        "evidence": [item.stable_payload() for item in included],
-        "included_evidence_ids": [item.evidence_id for item in included],
-        "excluded_evidence_ids": excluded,
-    }
-    context_hash = sha256(_canonical_json(payload_for_hash).encode("utf-8")).hexdigest()
-    return QuestionContext(
-        scope=scope,
-        normalized_question=normalized,
-        company_ids=identity_ids,
-        decision_snapshot_sha256=str(data.portfolio["snapshot_sha256"]),
-        context_hash=context_hash,
-        decision_facts=decision_facts,
-        evidence=tuple(included),
-        included_evidence_ids=tuple(item.evidence_id for item in included),
-        excluded_evidence_ids=tuple(excluded),
-        analysis_context=analysis_context,
-        scenario_delta=scenario_payload,
-        active_portfolio=active_portfolio,
-        selected_artifacts=artifacts,
-        conversation_history=tuple(history),
-        serialized_characters=size,
-        input_token_budget=input_token_budget,
+    raise QuestionContextError(
+        "Request budget leaves no citable evidence. Narrow the question or increase the "
+        "explicit input-token budget."
     )
 
 

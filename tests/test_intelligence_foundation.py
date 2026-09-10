@@ -101,6 +101,88 @@ def test_interactive_prompt_preserves_product_role_and_authority_boundary() -> N
         assert forbidden not in lowered
 
 
+def test_comparison_context_prunes_for_the_complete_request_budget(
+    dashboard: DashboardData,
+) -> None:
+    context = build_question_context(
+        dashboard,
+        scope=QuestionScope.COMPARISON,
+        question="Explain the current view and its risks.",
+        company_ids=("welspun", "zee"),
+    )
+    prompt = (ROOT / "prompts" / "portfolio_intelligence_prompt_v1.txt").read_text(encoding="utf-8")
+
+    assert context.input_token_budget == 4000
+    assert (
+        estimated_request_tokens(
+            context,
+            system_prompt=prompt,
+            response_schema=answer_response_json_schema(context),
+        )
+        <= context.input_token_budget
+    )
+    assert set(context.included_evidence_ids) >= {
+        "decision:welspun",
+        "decision:zee",
+        "session:active-portfolio",
+    }
+    assert context.excluded_evidence_ids
+    assert set(context.included_evidence_ids).isdisjoint(context.excluded_evidence_ids)
+
+
+def test_explicit_prompt_is_budgeted_without_loading_from_the_working_directory(
+    dashboard: DashboardData, tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    prompt = (ROOT / "prompts" / "portfolio_intelligence_prompt_v1.txt").read_text(encoding="utf-8")
+    prompt += "\n" + "Additional instruction. " * 120
+    monkeypatch.chdir(tmp_path)
+
+    context = build_question_context(
+        dashboard,
+        scope=QuestionScope.COMPARISON,
+        question="Explain the current view and its risks.",
+        company_ids=("welspun", "zee"),
+        system_prompt=prompt,
+    )
+
+    assert (
+        estimated_request_tokens(
+            context,
+            system_prompt=prompt,
+            response_schema=answer_response_json_schema(context),
+        )
+        <= 4000
+    )
+    assert set(context.included_evidence_ids) >= {
+        "decision:welspun",
+        "decision:zee",
+        "session:active-portfolio",
+    }
+
+
+def test_missing_prompt_and_oversized_required_context_fail_explicitly(
+    dashboard: DashboardData, tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    prompt = (ROOT / "prompts" / "portfolio_intelligence_prompt_v1.txt").read_text(encoding="utf-8")
+    monkeypatch.chdir(tmp_path)
+    with pytest.raises(QuestionContextError, match="supply system_prompt explicitly"):
+        build_question_context(
+            dashboard,
+            scope=QuestionScope.COMPANY,
+            question="Which DBL hard gate failed?",
+            company_ids=("dbl",),
+        )
+    with pytest.raises(QuestionContextError, match="Request too broad for the 4000-token"):
+        build_question_context(
+            dashboard,
+            scope=QuestionScope.COMPANY,
+            question="Which DBL hard gate failed?",
+            company_ids=("dbl",),
+            selected_artifacts=(build_hard_gates_artifact(dashboard, "dbl"),),
+            system_prompt=prompt * 8,
+        )
+
+
 def test_attached_portfolio_summary_fits_budget_with_citable_decisions(
     dashboard: DashboardData,
 ) -> None:
@@ -317,6 +399,7 @@ def test_answer_schema_and_validation_pin_identity_and_citations(
 def test_every_question_scope_emits_a_strict_schema_without_empty_enums(
     dashboard: DashboardData,
 ) -> None:
+    prompt = (ROOT / "prompts" / "portfolio_intelligence_prompt_v1.txt").read_text(encoding="utf-8")
     amber = dashboard.decision("amber")
     base = next(item for item in amber.scenarios if item["input"]["name"] == "base")
     raw = base["input"]
@@ -346,6 +429,10 @@ def test_every_question_scope_emits_a_strict_schema_without_empty_enums(
         )
         schema = answer_response_json_schema(context)
         _assert_strict_schema(schema)
+        assert (
+            estimated_request_tokens(context, system_prompt=prompt, response_schema=schema)
+            <= context.input_token_budget
+        )
         properties = schema["properties"]
         assert isinstance(properties, dict)
         company_schema = properties["company_ids"]
@@ -585,6 +672,89 @@ def test_conversation_history_model_payload_is_bounded_and_explicit() -> None:
     assert history.stable_payload()["context_hash"] == "prior-context"
 
 
+def test_hosted_dbl_question_with_both_attachments_fits_default_4000_token_budget(
+    dashboard: DashboardData,
+) -> None:
+    decision = dashboard.decision("dbl")
+    frozen = decision.stable_payload()
+    overlay = calculate_holdings_overlay(dashboard.decisions)
+    summary = SelectedArtifact(
+        artifact_id="dbl-decision-summary",
+        label=f"{decision.company_name} decision summary",
+        origin_page="Company Intelligence",
+        company_ids=("dbl",),
+        payload={
+            "stance": decision.underlying_stance,
+            "final_action": decision.final_portfolio_action,
+            "human_review_required": decision.human_review_required,
+            "human_review_reasons": list(decision.human_review_reasons),
+            "active_weight": str(overlay.company_weights["dbl"]),
+            "frozen_target_weight": decision.target_weight,
+            "weighted_principle_score": decision.weighted_principle_score,
+        },
+    )
+    hard_gates = build_hard_gates_artifact(dashboard, "dbl")
+    context = build_question_context(
+        dashboard,
+        scope=QuestionScope.COMPANY,
+        question=(
+            "Why is Dilip Buildcon marked SELL / REVIEW_REQUIRED, and how does its 4.10× "
+            "net debt-to-EBITDA calculation compare with the 4.0× hard-gate limit?"
+        ),
+        company_ids=("dbl",),
+        active_overlay=overlay,
+        selected_artifacts=(summary, hard_gates),
+    )
+    prompt = (ROOT / "prompts" / "portfolio_intelligence_prompt_v1.txt").read_text(encoding="utf-8")
+
+    assert context.input_token_budget == DEFAULT_QUESTION_INPUT_TOKENS == 4000
+    assert (
+        estimated_request_tokens(
+            context,
+            system_prompt=prompt,
+            response_schema=answer_response_json_schema(context),
+        )
+        <= 4000
+    )
+    assert context.selected_artifacts == (summary, hard_gates)
+    assert set(context.included_evidence_ids) >= {
+        "artifact:dbl-decision-summary",
+        "artifact:dbl-hard-gates",
+        "decision:dbl",
+        "session:active-portfolio",
+        "fundamental-dbl-consolidated-net-debt-fy26",
+        "fundamental-c02d7f1564a6c6e4",
+    }
+    evidence = {item.evidence_id: item for item in context.evidence}
+    assert "consolidated_net_debt: 7244 INR crore" in (
+        evidence["fundamental-dbl-consolidated-net-debt-fy26"].content
+    )
+    assert "consolidated_ebitda: 1766 INR crore" in (
+        evidence["fundamental-c02d7f1564a6c6e4"].content
+    )
+    gate_content = json.loads(evidence["artifact:dbl-hard-gates"].content)
+    assert gate_content["frozen_decision"] == {
+        "underlying_stance": "sell",
+        "final_action": "review_required",
+        "target_weight": "0",
+        "weighted_principle_score": "2.675",
+        "human_review_required": True,
+        "human_review_reasons": ["provisional_holdings_material_to_rebalance"],
+    }
+    failed_gate = next(
+        gate
+        for gate in gate_content["hard_gates"]
+        if gate["code"] == "balance_sheet_liquidity_and_funding"
+    )
+    assert failed_gate["status"] == "fail"
+    assert failed_gate["consequence"] == "sell"
+    assert failed_gate["calculation"]["result"] == "approximately 4.10x"
+    assert failed_gate["calculation"]["sell_threshold"] == "4.0x"
+    assert failed_gate["calculation"]["comparison"] == "above_sell_threshold"
+    assert decision.stable_payload() == frozen
+    assert context.decision_snapshot_sha256 == PHASE5_HASH
+
+
 def test_active_dbl_gate_follow_up_fits_the_interactive_budget(
     dashboard: DashboardData,
 ) -> None:
@@ -626,7 +796,7 @@ def test_active_dbl_gate_follow_up_fits_the_interactive_budget(
             system_prompt=prompt,
             response_schema=answer_response_json_schema(context),
         )
-        <= 2500
+        <= DEFAULT_QUESTION_INPUT_TOKENS
     )
     assert "artifact:dbl-hard-gates" in context.included_evidence_ids
     assert "session:active-portfolio" in context.included_evidence_ids

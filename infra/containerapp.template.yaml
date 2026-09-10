@@ -1,0 +1,90 @@
+{
+  "name": "<APP_NAME>",
+  "type": "Microsoft.App/containerApps",
+  "location": "<AZURE_REGION>",
+  "identity": {
+    "type": "UserAssigned",
+    "userAssignedIdentities": {
+      "<UAMI_RESOURCE_ID>": {}
+    }
+  },
+  "properties": {
+    "environmentId": "<ENVIRONMENT_RESOURCE_ID>",
+    "workloadProfileName": "Consumption",
+    "configuration": {
+      "activeRevisionsMode": "Single",
+      "ingress": {
+        "external": true,
+        "targetPort": 8501,
+        "transport": "auto",
+        "allowInsecure": false,
+        "traffic": [
+          {
+            "latestRevision": true,
+            "weight": 100
+          }
+        ]
+      },
+      "registries": [
+        {
+          "server": "<ACR_LOGIN_SERVER>",
+          "identity": "<UAMI_RESOURCE_ID>"
+        }
+      ]
+    },
+    "template": {
+      "containers": [
+        {
+          "name": "enam",
+          "image": "<ACR_LOGIN_SERVER>/enam:phase9-4fb20a2",
+          "resources": {
+            "cpu": 0.5,
+            "memory": "1Gi"
+          },
+          "probes": [
+            {
+              "type": "Startup",
+              "httpGet": {
+                "path": "/_stcore/health",
+                "port": 8501,
+                "scheme": "HTTP"
+              },
+              "initialDelaySeconds": 5,
+              "periodSeconds": 12,
+              "timeoutSeconds": 3,
+              "failureThreshold": 10
+            },
+            {
+              "type": "Liveness",
+              "httpGet": {
+                "path": "/_stcore/health",
+                "port": 8501,
+                "scheme": "HTTP"
+              },
+              "initialDelaySeconds": 10,
+              "periodSeconds": 30,
+              "timeoutSeconds": 3,
+              "failureThreshold": 3
+            },
+            {
+              "type": "Readiness",
+              "httpGet": {
+                "path": "/_stcore/health",
+                "port": 8501,
+                "scheme": "HTTP"
+              },
+              "initialDelaySeconds": 5,
+              "periodSeconds": 10,
+              "timeoutSeconds": 3,
+              "failureThreshold": 3
+            }
+          ]
+        }
+      ],
+      "scale": {
+        "minReplicas": 0,
+        "maxReplicas": 1
+      }
+    }
+  }
+}

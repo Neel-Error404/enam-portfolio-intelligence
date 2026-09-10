@@ -7,12 +7,13 @@ local Streamlit portfolio-intelligence interface.
 
 ## Status
 
-**The deterministic pipeline, offline memo layer, and local Streamlit application are complete.**
-The Azure endpoint normalization defect was corrected and the controlled `gpt-5.6-terra` Amber
-smoke request reached the Responses API. Its narrative was rejected because it changed an immutable
-contract-version field; Amber is therefore `validation_failed` and the other companies remain
-`generation_failed`. No substitute deployment was used. The supplied PDFs and workbook remain
-immutable local inputs in `assessment_inputs/` and are excluded from version control.
+**The deterministic pipeline is frozen and the connected local portfolio-intelligence application
+is implemented and verified through Phase 8D.** The app adds session-only holdings verification,
+bounded grounded questions, deterministic scenario testing, claim-level evidence cards, and
+supervised dispositions without changing the Phase 5 snapshot. Controlled Azure requests validated
+the corrected interactive answer path, including the DBL hard-gate calculation; ordinary reruns and
+citation interactions do not call the provider. The supplied PDFs and workbook remain immutable
+local inputs in `assessment_inputs/` and are excluded from version control.
 
 ## Structure
 
@@ -49,6 +50,11 @@ py -m pytest tests/test_memo_foundation.py --basetemp .pytest_cache\memo-foundat
 py -m pytest tests/test_memo_pipeline.py --basetemp .pytest_cache\memo-component-tmp
 py -m pytest tests/test_portfolio_ui_foundation.py --basetemp .pytest_cache\ui-foundation-tmp
 py -m pytest tests/test_streamlit_app.py --basetemp .pytest_cache\ui-component-tmp
+py -m pytest tests/test_intelligence_foundation.py --basetemp artifacts\pytest-phase8-foundation
+py -m pytest tests/test_intelligence_component.py --basetemp artifacts\pytest-phase8-component
+py -m pytest tests/test_phase8_integration.py --basetemp artifacts\pytest-phase8-integration
+py -m pytest tests/test_phase8_workflow.py --basetemp artifacts\pytest-phase8-workflow
+py -m pytest tests/test_phase8_stress.py --basetemp artifacts\pytest-phase8-stress
 py scripts/build_decision_snapshot.py
 py scripts/build_company_memos.py
 py -m ruff format --check .
@@ -63,10 +69,10 @@ Start the local application after the structured artifacts exist:
 py -m streamlit run app.py
 ```
 
-Do not copy, modify, upload, or commit protected inputs. The optional LLM path sends only the frozen
-decision contract and its cited normalized evidence. The Streamlit layer loads sanitized local
-artifacts and does not call Azure on rerun. The implementation does not include an autonomous
-agent, cloud deployment, trade execution, or publishing work.
+Do not copy, modify, upload, or commit protected inputs. The optional LLM path sends only a compact
+question-specific subset of frozen decision facts and allowed evidence. It calls Azure only after
+an explicit submit and caches the validated result in the current session. The implementation does
+not include an autonomous agent, cloud deployment, trade execution, or publishing work.
 
 See [the ingestion report](docs/INGESTION_REPORT.md),
 [historical analysis](docs/HISTORICAL_ANALYSIS.md),
@@ -77,5 +83,7 @@ See [the ingestion report](docs/INGESTION_REPORT.md),
 [current recommendations](docs/CURRENT_RECOMMENDATIONS.md),
 [memo architecture](docs/LLM_MEMO_ARCHITECTURE.md), [company memos](docs/COMPANY_MEMOS.md),
 [Streamlit application](docs/STREAMLIT_APP.md),
+[connected product flow](docs/PORTFOLIO_INTELLIGENCE_APP.md),
+[Phase 8A verification](docs/PHASE8A_VERIFICATION.md),
 [source review](docs/source_review.md), [decisions](docs/decisions.md), and
 [assumptions](docs/assumptions.md).

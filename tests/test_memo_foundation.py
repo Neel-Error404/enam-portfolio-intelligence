@@ -30,7 +30,7 @@ from enam_assessment.memo import (
     parse_and_validate_memo_response,
     read_decision_memo_inputs,
 )
-from enam_assessment.memo_provider import AzureOpenAISettings
+from enam_assessment.memo_provider import AzureOpenAISettings, sanitize_provider_error
 from enam_assessment.phase5_consistency import (
     read_phase3_open_holdings,
     reconcile_working_holdings,
@@ -38,6 +38,50 @@ from enam_assessment.phase5_consistency import (
 
 ROOT = Path(__file__).resolve().parents[1]
 PHASE5_HASH = "014403f6ce1549d8b390a723870cbe709a18953782f6dffe6ae84ddd2b924e89"
+
+
+def test_provider_error_preserves_sanitized_azure_diagnostics() -> None:
+    import httpx
+    from openai import BadRequestError
+
+    settings = AzureOpenAISettings(
+        base_url="https://secret-resource.example/openai/v1/",
+        api_key="secret-key",
+        deployment="gpt-5.6-terra",
+        reasoning_effort="low",
+        max_output_tokens=2200,
+        prompt_version=PROMPT_VERSION,
+        memo_contract_version=MEMO_CONTRACT_VERSION,
+    )
+    request = httpx.Request("POST", settings.base_url + "responses")
+    response = httpx.Response(
+        400,
+        request=request,
+        headers={"x-request-id": "request-123"},
+    )
+    error = BadRequestError(
+        "bad schema",
+        response=response,
+        body={
+            "code": "invalid_json_schema",
+            "param": "text.format.schema",
+            "type": "invalid_request_error",
+            "message": (
+                "Schema rejected at https://secret-resource.example/openai/v1/ using secret-key"
+            ),
+        },
+    )
+
+    detail = sanitize_provider_error(error, settings).stable_payload()
+
+    assert detail == {
+        "status": 400,
+        "request_id": "request-123",
+        "code": "invalid_json_schema",
+        "parameter": "text.format.schema",
+        "type": "invalid_request_error",
+        "message": "Schema rejected at [redacted] using [redacted]",
+    }
 
 
 def test_working_holdings_reconcile_with_phase3_artifact() -> None:

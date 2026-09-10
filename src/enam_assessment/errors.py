@@ -103,3 +103,23 @@ class MemoValidationError(MemoError):
 
 class UIArtifactError(EnamAssessmentError):
     """Raised when a local dashboard artifact is missing, malformed, or inconsistent."""
+
+
+class PortfolioIntelligenceError(EnamAssessmentError):
+    """Base exception for bounded interactive portfolio-intelligence failures."""
+
+
+class QuestionContextError(PortfolioIntelligenceError):
+    """Raised when a grounded question context is unsupported or exceeds its budget."""
+
+
+class QuestionValidationError(PortfolioIntelligenceError):
+    """Raised when a generated answer violates its schema or citation boundary."""
+
+
+class ScenarioLabError(PortfolioIntelligenceError):
+    """Raised when a scenario override cannot be recalculated safely."""
+
+
+class HoldingsOverlayError(PortfolioIntelligenceError):
+    """Raised when session-local holdings or cash inputs are invalid."""

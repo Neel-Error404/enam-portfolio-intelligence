@@ -141,3 +141,19 @@ unavailable, and invalid evidence. Staleness is only assigned when a caller supp
 - `MemoStatePresentation`: accessible text label, tone, and message for one explicit memo state.
 - `historical_analysis_summary.json`: compact structured rendering of the completed Phase 3 report
   used by the Investor Behaviour view; it is not a second analytics calculation path.
+# Phase 8A interactive records
+
+- `QuestionContext` — deterministic request scope, normalized question, selected company IDs,
+  frozen snapshot hash, compact decision facts, included/excluded evidence IDs, optional scenario
+  delta, context hash, and explicit input-token budget.
+- `ContextEvidence` — minimum model-visible evidence: stable ID, category, availability date, and
+  concise content. Full display provenance is resolved locally after citation.
+- `GroundedAnswer` — `portfolio-answer-v1` response containing immutable scope/company/hash
+  identity, one direct answer, and bounded supporting, counterpoint, unknown, and change-condition
+  claim lists. Every claim contains one or more request-allowed evidence IDs.
+- `HoldingsOverlay` — session-only current shares, cash, values, weights, HHI, effective positions,
+  and concentration-review state. It does not replace the frozen portfolio snapshot.
+- `ScenarioDelta` — frozen scenario baseline, supported overrides, deterministic recalculation, and
+  target-value/CAGR deltas produced by the existing Phase 5 calculation.
+- `HumanDisposition` — session-only `accepted`, `rejected`, or `deferred` owner record with note,
+  timestamp, frozen snapshot hash, and unchanged engine stance/action.

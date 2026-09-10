@@ -89,6 +89,8 @@ companies only after that smoke test succeeds. Returned token counts are retaine
 cost is not inferred because Azure deployment pricing and account credits are not part of the
 repository evidence.
 
+### Historical Phase 7 memo smoke
+
 As of 2026-09-10, the configured endpoint was found to already end in `/openai`. Earlier code
 blindly appended `/openai/v1/`, producing the invalid `/openai/openai/v1/` route and the observed
 `NotFoundError`. Endpoint normalization now accepts the Azure resource root, `/openai`, or the
@@ -105,6 +107,16 @@ constrained to their exact values in the request schema and checked again locall
 Amber fixture at
 `tests/fixtures/validated_memo_amber.json` is the representative memo validated through the fake
 provider during offline Component tests.
+
+### Current Phase 8 interactive-answer status
+
+The application now uses the separate, compact `portfolio-answer-v1` contract for interactive
+portfolio intelligence. Controlled Phase 8 calls verified the corrected strict schema, bounded
+evidence context, immutable deterministic fields, active-session portfolio distinction, scenario
+delta, and DBL hard-gate calculation on deployment `gpt-5.6-terra` with low reasoning. Phase 8D
+added claim-level provenance presentation without changing the prompt, answer contract, provider,
+or frozen decision. The legacy Phase 7 memo failure above remains historical evidence and is not the
+current status of the interactive answer path.
 
 Implementation references:
 

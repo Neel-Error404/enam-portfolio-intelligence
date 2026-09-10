@@ -73,3 +73,14 @@
 - **UNRESOLVED:** Amber is `validation_failed`; DBL, Welspun, and Zee remain `generation_failed`
   because the smoke gate prevented their calls. All four must be generated and locally validated
   before live Phase 6/7 closure.
+
+## 2026-09-10 - Phase 8A
+
+- **ASSUMED:** A four-company universe can use deterministic UI scope and topic routing; embeddings
+  and vector search would add complexity without improving this bounded evidence set.
+- **ASSUMED:** Four characters per token plus a 1,400-token interactive or 1,600-token brief
+  prompt/schema reserve is a conservative pre-call budget until actual Azure usage provides a
+  measured comparison.
+- **DECIDED:** User-confirmed shares, cash, scenario changes, and dispositions remain session-local
+  overlays. They never overwrite the workbook, evidence snapshot, or Phase 5 decision artifact.
+- **DECIDED:** Human dispositions record review outcomes only and never imply order placement.

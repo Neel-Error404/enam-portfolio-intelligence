@@ -91,3 +91,19 @@
 - Keep immutable memo identity fields constrained in the strict response schema and validate them
   again locally. Stop after the corrected Amber request returned the wrong memo-contract version;
   do not automatically retry or substitute another deployment.
+
+## 2026-09-10 - Phase 8A connected product flow
+
+- Keep the Phase 5 snapshot immutable; use session-only overlays for confirmed shares, cash,
+  scenario changes, and human dispositions.
+- Replace the large memo as the primary interaction with bounded `portfolio-answer-v1` responses
+  for company briefs, company questions, portfolio questions, comparisons, behaviour, and scenario
+  deltas. The Phase 6 memo artifact remains visible only as legacy audit state.
+- Route evidence deterministically by UI scope and topic. Preserve a local record of excluded IDs;
+  retain scope-defining deterministic calculation records before optional source evidence.
+- Default interactive Azure requests to `gpt-5.6-terra`, low reasoning, a 2,200-token output limit,
+  and an approximately 2,500-token total input budget (3,500 for a brief).
+- Treat citation validation as traceability only. Show local provenance cards so the owner can
+  inspect whether the cited content actually supports a model-authored claim.
+- Cache validated or failed answers only in the current Streamlit session by normalized question
+  and context hash. Never call Azure merely because the app reruns.

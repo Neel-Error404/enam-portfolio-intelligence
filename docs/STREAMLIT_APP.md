@@ -33,7 +33,7 @@ application error. A rejected narrative is never rendered as trusted content.
 
 1. **Investor Behaviour** presents realized results, holding patterns, sizing, provisional open-cost
    concentration, conservative event-pattern findings, and historical benchmark context.
-2. **Current Portfolio** keeps stance, final action, human approval, current weight, target weight,
+2. **Portfolio Cockpit** keeps stance, final action, human approval, current weight, target weight,
    cash, concentration, and bear-case portfolio-at-risk distinct.
 3. **Company Intelligence** shows the six principles, hard gates, bear/base/bull scenarios, evidence
    balance, explicit memo state, change triggers, missing information, and citation provenance.
@@ -44,23 +44,27 @@ All four memo states are explicit: `generated`, `not_configured`, `generation_fa
 `validation_failed`. Deterministic analysis remains visible in every state. Only a `generated`
 narrative that passes the Phase 6 schema, identity, temporal, and citation checks is displayed.
 
-## Current live status
+## Live-validation history and current status
 
-On 10 September 2026, endpoint normalization was corrected so an endpoint already ending in
+The initial Phase 7 memo smoke on 10 September 2026 established that endpoint normalization was
+needed so an endpoint already ending in
 `/openai` becomes the documented SDK base path `/openai/v1/`, rather than the invalid duplicated
 path `/openai/openai/v1/`. The controlled Amber request then reached deployment `gpt-5.6-terra`
 with reasoning effort `medium` and a 6,000-token output limit. Azure returned structured output, but
 local validation rejected it because `memo_contract_version` was changed from `company-memo-v1` to
-`phase5-company-decision-v1`. Amber is therefore `validation_failed`; the other companies were not
-called after the failed smoke gate and remain `generation_failed`.
+`phase5-company-decision-v1`. That response remains recorded as the authentic historical failure;
+the other legacy company-memo calls were deliberately not made after that smoke gate.
 
 Azure reported 6,104 input tokens, 3,222 output tokens, and 9,326 total tokens for Amber. No charge
 is confirmed. Immutable response fields are now pinned to their exact allowed values in the strict
 JSON Schema, as well as being checked after generation.
 
-The next live step is one explicitly approved Amber retry using the strengthened schema. Only after
-that memo validates should the existing builder call the remaining companies. No UI code change is
-required for a successful artifact: the app will load and validate the regenerated memo file.
+The current application uses the later compact `portfolio-answer-v1` path rather than treating the
+legacy long-form memo artifact as live commentary. Controlled Phase 8 calls with deployment
+`gpt-5.6-terra` and low reasoning validated the bounded question contexts, immutable identity,
+citation allow-list, active-session overlay, scenario delta, and DBL hard-gate explanation. The
+claim-level provenance UI was then verified offline in Phase 8D without another provider call. The
+complete chronology and per-call evidence are retained in `docs/PHASE8A_VERIFICATION.md`.
 
 ## Local verification
 
